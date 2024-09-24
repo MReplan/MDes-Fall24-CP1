@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333; /* Default background */
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+#coffees li { /* Add some breathing room between choices */
+    margin-bottom: 15px; 
+}
+
+#coffees ul {
+    list-style-type:none;
+    margin-top:20px;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white; /* Default link color */
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f0a500;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Section Backgrounds */
+#home {
+    background-color: #f0f0f0; /* Default background color */
+}
+
+#about {
+    background-color: #e0e0e0;
+}
+
+#about p {
+    max-width:700px;
+    margin: 0 auto;
+}
+
+#coffees {
+    background-color: #d0d0d0;
+}
+
+#contact {
+    background-color: #c0c0c0;
+}
+
+/* iPad (768px - 1024px) */
+/* Changes colors for iPad viewport sizes */
+@media screen and (max-width: 1024px) {
+    nav {
+        background-color: #2d72d2; /* Change navigation bar color to blue */
+    }
+
+    .nav-links a {
+        color: #e0e0e0; /* Change link color */
+    }
+
+    #home {
+        background-color: #e3f2fd; /* Light blue background */
+        font-family:'Times New Roman', Times, serif
+    }
+
+    #about {
+        background-color: #bbdefb; /* Medium blue background */
+    }
+
+    #coffees {
+        background-color: #90caf9; /* Slightly darker blue background */
+    }
+
+    #contact {
+        background-color: #64b5f6; /* Darker blue background */
+    }
+}
+
+/* Phone size (max-width: 768px) */
+/* Changes colors for mobile/phone viewport sizes */
+@media screen and (max-width: 768px) {
+    nav {
+        background-color: #ff7043; /* Change navigation bar color to orange */
+    }
+
+    .nav-links a {
+        color: #fff3e0; /* Light orange for link text */
+    }
+
+    #home {
+        background-color: #ffe0b2; /* Light orange background */
+        font-family:fantasy
+    }
+
+    #about {
+        background-color: #ffcc80; /* Medium orange background */
+    }
+
+    #coffees {
+        background-color: #ffb74d; /* Slightly darker orange background */
+    }
+
+    #contact {
+        background-color: #ffa726; /* Darker orange background */
+    }
+
+    /* Mobile burger menu styles */
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 100vh;
+        top: 0;
+        background-color: #ff7043; /* Match the burger menu to the nav bar color */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .nav-active {
+        transform: translateX(0);
+    }
+
+    .nav-links li {
+        opacity: 1;
+        transition: opacity 0.5s ease-in;
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
