@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sat Obs Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <p id="aiText">Hi user. I'm an AI. My R-CNN needs help in finding a naval fleet. 
+            Can you review each thumbnail and confirm which one has the fleet? 
+            We appreciate your cooperation, user.
+        </p>
+
+        <p id="resultMessage"></p>
+        <div>
+            <button id="fleetButton">This is the fleet</button>
+        </div>
+        
+
+        <ul class="thumbnails">
+            <li class="gallery-thumb current-thumb"><img src="images/oilspilltanker_yy_planetLabs.webp" alt="oil spill"></li>
+            <li class="gallery-thumb"><img src="images/navalfleet_yy_planetLabs.webp" alt="naval fleet"></li>
+            <li class="gallery-thumb"><img src="images/shipEverForward_yy_planetLabs.webp" alt="ever forward"></li>
+            <li class="gallery-thumb"><img src="images/socal_shoreline_planetLabs.webp" alt="shoreline"></li>
+            <li class="gallery-thumb"><img src="images/superyacht_yyIndianOcean_planetLabs.webp" alt="superyacht"></li> 
+        </ul>
+
+        <div class="imgShowcase"></div>
+            <img src="images/socal_shoreline_planetLabs.webp" alt="starter showcase img"
+            id="showcaseImage">
+    </main>
+    <script src="satelliteGallery.js"></script>
+</body>
+
+</html>

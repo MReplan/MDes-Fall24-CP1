@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Let's use a cool font for the AI persona! */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+#aiText {
+    font-family: 'Roboto Mono', monospace; /* This is AI looky!! */
+    margin: 20px 0; /* Spacing above and below the text */
+    padding: 0 10px; /* this is a good padding number for now */
+    font-size: 18px; 
+    color: #4c4c4c; /* Neutral, techy text color!! */
+    line-height: 1.6; 
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333; /* Default background */
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+    
+}
+
+.nav-links a {
+    color: white; /* Default link color */
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f0a500;
+}
+
+
+
+
+
+
+
+section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Section Backgrounds */
+#home {
+    background-color: #f0f0f0; /* Default background color */
+}
+
+#about {
+    background-color: #e0e0e0;
+}
+
+
+
+.thumbnails{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.thumbnails li{
+    padding: 16px;
+    list-style: none;
+}
+
+.current-thumb{
+    background-color: darkred;
+}
+
+.imgShowcase{
+    padding: 8px;
+}
+
+
+
+/* Let's style the fleetButton */
+#fleetButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px; /* Add space to keep it away from thumbnail*/
+    margin-bottom: 20px; 
+}
+
+#fleetButton:hover {
+    background-color: #f0a500;
+}
+
+#resultMessage {
+    margin-top: 10px;
+    font-size: 18px;
+}
