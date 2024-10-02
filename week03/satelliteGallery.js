@@ -48,7 +48,7 @@ fleetButton.addEventListener('click', () => {
         resultMessage.style.color = "green";
 
         // Update the AI text
-        aiText.textContent = "Thank you, User. You made a difference. My creators will take it from here.";
+        aiText.textContent = "Thank you, User. You made a difference. My creators (3 Quokkas) will take it from here.";
         
         // Let's disable the fleet button!
         fleetButton.disabled = true;
