@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.quote-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.quote-block {
+    background-color: #fafafa;
+    border-left: 5px solid #4CAF50;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.quote {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.thought {
+    font-size: 1rem;
+    color: #666;
+}
