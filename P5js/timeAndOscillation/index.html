@@ -1,37 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Embedded p5.js Sketch</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Prototyping HW / W09</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <!-- Centered p5.js Embed Canvas -->
-    <iframe src="https://editor.p5js.org/mreplan_mdes/full/zH5-tdno9" 
-            class="canvas-frame" 
-            allowfullscreen></iframe>
-
-    <!-- Bullet Points Section -->
-    <div class="content-section">
-      <h2>Key Points</h2>
-      <ul>
-        <li>Point 1: Description of point 1.</li>
-        <li>Point 2: Description of point 2.</li>
-        <li>Point 3: Description of point 3.</li>
-        <li>Point 4: Description of point 4.</li>
-        <li>Point 5: Description of point 5.</li>
-      </ul>
+    <header>
+        <h1>Creative Prototyping HW: Time and Oscillation</h1>
+        <p>Mikey R | GIXD-503A W09 | 11/12/24</p>
+        <p>*11/27 | Changelog, Major: I revisited this project over the break to apply a universal dark-mode scheme similar to what I did for the more recent homework. Also revisited to add better documentation of this code development! </p>
+    </header>
+    <div class="canvas-container">
+        <iframe src="https://editor.p5js.org/mreplan_mdes/full/wpx2CGWNU">
+                style="width: 100%; height: 100%; border: none;" 
+                title="p5.js Sketch"
+        </iframe>
     </div>
+    <section class="documentation">
+        <h2>Ideation:</h2>
+        <p>Let's observe the force of gravity and how it can affect an object's ballistic trajectory. An interesting interactive element is for the user to switch the gravity setting based on different gravitational constants. This can give users a good appreciation of how different planet's gravity compares to what we experience on Earth!</p>
+       
 
-    <!-- Paragraph Section -->
-    <div class="content-section">
-      <h2>Summary</h2>
-      <p>
-        This is a paragraph of text providing additional information or context about the p5.js sketch displayed above. You can replace this text with any content you’d like.
-      </p>
-    </div>
-  </div>
+        <h2>Always Schemin': Draw it Up + Physics Lookup</h2>
+        <p>Draw this trajectory visualizer! We'll start the object on the left and when user hits "Launch" instant velocity is applied in the x and y direction.</p>
+        <img src="assets/sketchConcept_1.png" alt="Sketch 1" class="single-image">
+
+        
+        <p>Let's also perform a check when the object hits the "ground level" as well as account for possibility of object going out of canvas bounds. Further, let's also add the ability for the user to select types of gravity so they can observe the differences here. Radio button UI seems to be most appropriate!</p>
+        <p>We'll pick 1 "lighter" and 1 "heavy" planet, Mars and Jupiter. Looking up the gravitational constants for both and comparing to Earth's 9.81 m/s^2, the proportional differences are 0.38 and 2.53 respectively. This means that an object weights 2.53x in Jupiter (neglecting buoyancy effects due to being a gaseous planet.)
+        <p>By looking up these gravitational constants and determinging the proportions relative to Earth, this gives users a good sense of scale/difference when launching the object! This adds a lot of realism and connection to this mini physics lesson!</p>
+
+        <h2>Divide & Conquer: block-psuedocode + taskbreakdown</h2>
+        <p>Like previous projects, I don't like coding straight away but really taking the time to architect how the code will shape up! Based on the sketch, the star of the show class, "Ball" will need a function that updates the position and velocity as well as a display() function to draw the object over time!</p>
+        <img src="assets/sketchBlocking_1.png" alt="Blocking Documentation" class="single-image">
+        <cap>Sweet! So with the psuedocode blocked out, I can start diving into each block's core capabilities.</cap>
+
+        <h2>Technical Hurdles and Overcoming 'Em!</h2>
+        <p>In earlier iterations, when I clicked on my radio button to switch grav constants, the ball disappears! I instantly created console log tappoints to investigate... for some reason the gravity being reported out was NaN! From past coding experiences, NaN is always a bad omen and I suspect that's what causes the ball display() to not render because NaN ruins the position! Luckily, I realized my mistake - the radio button documentation states that the "label" that will display is supposed to be the 2nd parameter in the input syntax.</p>
+        <img src="assets/observationSample_1.png" alt="Observation1" class="single-image">
+        <cap>Screencapture moment I discovered my radio button returns NaN via console log. In the text editor you can observe my gravity option input mistake! Number first then label!</cap>
+        <p>Another hurdle I was encountering was making sure my boundary checker if statement was working - as seen in the image above, I also console-logged the Ball's x and y position throughout the trajectory! By reporting it out in pixel-space this also helped me "size-up" my default Canvas size to account for the Mars case which is the case that causes the Ball to travel furthest in the x and y direction!</p>
+        <p>Overall, this was a cool activity to create a way to appreciate how ballistic trajectories drastically change based on a planet's gravitational constant!</p>
+
+      </section>
 </body>
 </html>
