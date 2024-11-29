@@ -8,13 +8,13 @@
 /* Body Styles */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #0b0d10; /* Deep dark background */
-  color: #e6e6e6; /* Soft light gray text */
+  background-color: #0b0d10; /* Dark background */
+  color: #e6e6e6; /* Light text */
   padding: 40px;
   line-height: 1.7;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items:stretch;
   min-height: 100vh;
 }
 
@@ -27,34 +27,32 @@ header {
 h1 {
   font-weight: 600;
   font-size: 2.5rem;
-  color: #ffffff; /* Pure white for emphasis */
+  color: #ffffff; /* White for emphasis */
   margin-bottom: 10px;
 }
 
 p {
   font-weight: 400;
   font-size: 1rem;
-  color: #a9a9a9; /* Subtle gray for metadata */
+  color: #a9a9a9; /* Subtle gray text */
   margin-bottom: 10px;
 }
 
 /* Canvas Container Styles */
 .canvas-container {
+  max-width: 800px;
   width: 100%;
   height: 100%;
-  max-width: 800px; 
-  aspect-ratio: 5 / 4; 
-  background-color: #121417; /* Slightly lighter dark for canvas background */
-  border: 1px solid #2c2f33; /* Thin border for definition */
+  background-color: #121417; /* Slightly lighter dark */
+  border: 1px solid #2c2f33; /* Subtle border */
   margin-bottom: 15px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 }
 
-/* Documentation Section Styles */
+/* Documentation Section */
 .documentation {
-  width: 100%;
   max-width: 800px;
   text-align: left;
 }
@@ -62,23 +60,38 @@ p {
 .documentation h2 {
   font-weight: 600;
   font-size: 1.75rem;
-  color: #ffffff; /* White headers */
+  color: #ffffff;
   margin-top: 35px;
 }
 
 .documentation p {
   font-weight: 400;
   font-size: 1rem;
-  color: #e6e6e6; /* Standard body text color */
+  color: #e6e6e6;
 }
 
 .documentation cap {
-  font-weight: 400;
-  font-size: 1rem;
-  color: #a9a9a9; /* Subtle gray for metadata */
   font-style: italic;
+  color: #a9a9a9; /* Metadata color */
   margin-bottom: 15px;
   display: block;
+}
+
+/* Picture Container Styles */
+.pic-container {
+  display: flex;
+  gap: 20px; /* Space between images */
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.pic-container img {
+  width: 100%;
+  max-width: 400px; /* Limit the width of each image */
+  height: 100%;
+  border-radius: 8px; /* Smooth edges */
+  border: 1px solid #2c2f33; /* Subtle border */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Add slight shadow */
 }
 
 /* Video Container Styles */
@@ -98,50 +111,25 @@ p {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Add slight shadow */
 }
 
-/* Ensure responsiveness */
 @media (max-width: 768px) {
-  .video-container {
-      flex-direction: column; /* Stack videos on smaller screens */
-      align-items: center;
+  .video-container, .pic-container {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
-
-/* Picture Container Styles */
-.pic-container {
+/* Single Image */
+.documentation .pic-container-single {
   display: flex;
-  gap: 20px; /* Space between images */
   margin-top: 5px;
   margin-bottom: 15px;
 }
 
-.pic-container img {
+.documentation .pic-container-single img {
   width: 100%;
-  max-width: 400px; /* Limit the width of each image */
-  height: auto;
+  height: 100%;
   border-radius: 8px; /* Smooth edges */
   border: 1px solid #2c2f33; /* Subtle border */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Add slight shadow */
-}
 
-
-
-/* Ensure responsiveness */
-@media (max-width: 768px) {
-  .pic-container {
-      flex-direction: column; /* Stack images on smaller screens */
-      align-items: center;
-  }
-}
-
-/* Single Image Styling: single targeting, not as complicated as the above pic-container! */ 
-.single-image {
-  width: 100%; /* Full width of the parent container */
-  max-width: 768px; /* Constrain maximum width */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 8px; /* Smooth edges */
-  border: 1px solid #2c2f33; /* Subtle border */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Add slight shadow */
-  /*margin: 20px 0; /* Add spacing above and below */
-  display: block; /* Center-align block-level image */
 }

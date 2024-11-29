@@ -1,50 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Prototyping HW / W09</title>
-    <link rel="stylesheet" href="styles/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js Sketch</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  
 </head>
 <body>
-    <header>
-        <h1>Creative Prototyping HW: Time and Oscillation</h1>
-        <p>Mikey R | GIXD-503A W09 | 11/12/24</p>
-        <p>*11/27 | Changelog, Major: I revisited this project over the break to apply a universal dark-mode scheme similar to what I did for the more recent homework. Also revisited to add better documentation of this code development! </p>
-    </header>
-    <div class="canvas-container">
-        <iframe src="https://editor.p5js.org/mreplan_mdes/full/wpx2CGWNU">
-                style="width: 100%; height: 100%; border: none;" 
-                title="p5.js Sketch"
-        </iframe>
+  <header>
+    <h1>Creative Prototyping HW: Time and Oscillation</h1>
+    <p>Mikey R | GIXD-503A W09 | 11/12/24</p>
+    <p>*11/27 | Changelog, Major: I revisited this project to apply a universal dark-mode scheme similar to what I did for the more recent homework. Also revisited to add better documentation of this code development! </p>
+  </header>
+
+  <!-- Canvas Container -->
+  <div class="canvas-container">
+    <iframe 
+      src="https://editor.p5js.org/mreplan_mdes/full/wpx2CGWNU" 
+      style="width: 100%; height: 500px; border: none;" 
+      title="p5.js Sketch">
+    </iframe>
+  </div>
+
+  <section class="documentation">
+    <h2>Ideation:</h2>
+    <p>Inspiration - I like orbits and spherical visual elements (obviously because I have tattoos of spherical geometry) and therefore wanted to do some cool sine wave motion with some sort of sphere element. A huge inspiration source is my tattoo artist Okan Uckun as well as the geometric sphere “Sound of the Earth: Chapter 3” by Yuri Suzuki for Experiments with Google.</p>
+    
+    <div class="pic-container">
+        <img src="assets/sample_Okan.jpg" alt="Image 1">
+        <img src="assets/sample_GoogleSoundscape.png" alt="Image 2">
+      </div>
+
+    <h2>Draw It Up!</h2>
+    <p>Start with a sketch. Per project requirements, I’m going to use sin() as my trigonometric element. Each particle is “locked” in a slot in the x-axis but can move up and down in the y-axis. The y-axis movement is dictated by sin() which also gives it an “easing” movement. </p>
+    <div class="pic-container-single">
+        <img src="assets/sketch_sample1.png" alt="Sketch 1" class="single-image">
     </div>
-    <section class="documentation">
-        <h2>Ideation:</h2>
-        <p>Let's observe the force of gravity and how it can affect an object's ballistic trajectory. An interesting interactive element is for the user to switch the gravity setting based on different gravitational constants. This can give users a good appreciation of how different planet's gravity compares to what we experience on Earth!</p>
-       
+    <p>I noticed that a lot projects uses classes to manage visual elements so I’m going to use it here for each sin() wave that will be iteratively generated. My object based programming and thinking-in-parameters helped a lot here! This will also make the code modular and I can “tune” parameters to result in very different visual results. </p>
 
-        <h2>Always Schemin': Draw it Up + Physics Lookup</h2>
-        <p>Draw this trajectory visualizer! We'll start the object on the left and when user hits "Launch" instant velocity is applied in the x and y direction.</p>
-        <img src="assets/sketchConcept_1.png" alt="Sketch 1" class="single-image">
+    <h2>Incremental Iterations</h2>
+    <p>The sketch above helped drive my coding efforts and break it to manageable chunks. I first had to fundamentally plot particles that performed the sinusoidal movement and then add on to that the ability to plot multiple "waves" using a shifting parameter!</p>
 
-        
-        <p>Let's also perform a check when the object hits the "ground level" as well as account for possibility of object going out of canvas bounds. Further, let's also add the ability for the user to select types of gravity so they can observe the differences here. Radio button UI seems to be most appropriate!</p>
-        <p>We'll pick 1 "lighter" and 1 "heavy" planet, Mars and Jupiter. Looking up the gravitational constants for both and comparing to Earth's 9.81 m/s^2, the proportional differences are 0.38 and 2.53 respectively. This means that an object weights 2.53x in Jupiter (neglecting buoyancy effects due to being a gaseous planet.)
-        <p>By looking up these gravitational constants and determinging the proportions relative to Earth, this gives users a good sense of scale/difference when launching the object! This adds a lot of realism and connection to this mini physics lesson!</p>
+    <div class="video-container">
+      <video src="assets/iterSample_1.mov" alt="Sample Vid 1" autoplay loop muted></video>
+      <video src="assets/iterSample_2.mov" alt="Sample Vid 2" autoplay loop muted></video>
+    </div>
+    <cap>Fundamentally get the particle y-movement going AND being able to plot multiple waves!</cap>
 
-        <h2>Divide & Conquer: block-psuedocode + taskbreakdown</h2>
-        <p>Like previous projects, I don't like coding straight away but really taking the time to architect how the code will shape up! Based on the sketch, the star of the show class, "Ball" will need a function that updates the position and velocity as well as a display() function to draw the object over time!</p>
-        <img src="assets/sketchBlocking_1.png" alt="Blocking Documentation" class="single-image">
-        <cap>Sweet! So with the psuedocode blocked out, I can start diving into each block's core capabilities.</cap>
+    <p> Cool! So I also wanted to explore how I can control amplitude - initially this was simple, having a variable called "amplitude" that is multipled directly outside of sin() for my y-movement:</p>
+    <div class="video-container">
+      <video src="assets/iterSample_3.mov" alt="Sample Vid 1" autoplay loop muted></video>
+      <video src="assets/iterSample_4.mov" alt="Sample Vid 2" autoplay loop muted></video>
+    </div>
+    <cap>Seen above, example of varying the amount of waves drawn AND changing the amplitude by some constant value in pixel height!</cap>
 
-        <h2>Technical Hurdles and Overcoming 'Em!</h2>
-        <p>In earlier iterations, when I clicked on my radio button to switch grav constants, the ball disappears! I instantly created console log tappoints to investigate... for some reason the gravity being reported out was NaN! From past coding experiences, NaN is always a bad omen and I suspect that's what causes the ball display() to not render because NaN ruins the position! Luckily, I realized my mistake - the radio button documentation states that the "label" that will display is supposed to be the 2nd parameter in the input syntax.</p>
-        <img src="assets/observationSample_1.png" alt="Observation1" class="single-image">
-        <cap>Screencapture moment I discovered my radio button returns NaN via console log. In the text editor you can observe my gravity option input mistake! Number first then label!</cap>
-        <p>Another hurdle I was encountering was making sure my boundary checker if statement was working - as seen in the image above, I also console-logged the Ball's x and y position throughout the trajectory! By reporting it out in pixel-space this also helped me "size-up" my default Canvas size to account for the Mars case which is the case that causes the Ball to travel furthest in the x and y direction!</p>
-        <p>Overall, this was a cool activity to create a way to appreciate how ballistic trajectories drastically change based on a planet's gravitational constant!</p>
+    <p>Here's where things got interesting - constricting amplitude with a tapering effect, in this case, constrict to a sphere radius r. In my amplitude calculation " r * sqrt(1- pow((x/r), 2))"  modulates the vertical displacement of the wave at each horizontal position x, resulting in a wave shape that follows a circular arc.</p>
+    <div class="video-container">
+      <video src="assets/iterSample_5.mov" alt="Sample Vid 1" autoplay loop muted></video>
+      <video src="assets/iterSample_6.mov" alt="Sample Vid 2" autoplay loop muted></video>
+    </div>
+    <cap>I overlayed an ellipse to confirm cicular restriction and it starts looking really cool at increasing number of waves!</cap>
 
-      </section>
+
+
+    <h2>Technical Hurdle: Understanding Sin() modifiers and Circular Restriction</h2>
+    <p>Although I do have a signals processing background, it's been a while thinking "in-waves" and appreciating how one can "sculpt" sin() such as multiplying sin() to affect amplitude. Paul Falstad's Wave and Oscillation applets helped me speedrun/refresh on visualizing sin() and helped create the above amplitude restrictor equation.</p>
+    <p>Aside from amplitude I also had to brush up on how items within sin() affects output - in sin(ax+b) I recognize how a=Frequence and +b acts as phase shifting here! Cool effect can be achieved by augment time-variant which in this case, multiplying "this.movement". This causes waves to add sequential/ordinal variation:</p>
+    
+    <div class="video-container">
+      <video src="assets/iterSample_7.mov" autoplay loop muted></video>
+    </div>
+    
+    <img src="assets/observationSample_1.png" alt="Observation1" class="single-image">
+    <cap>Example of final iteration buy also multiplying additional offset "this.movement" which in itself is a sin() of time increment!</cap>
+    <p>Overall, this was a cool activity to learn how sin() can be manipulted to showcase very mesmerizing particle movement!</p>
+
+  </section>
+
+
+
+
+
+
 </body>
 </html>
